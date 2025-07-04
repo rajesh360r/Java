@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Area_of_rectangle {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        double length;
+        double breadth;
+        double area;
+
+        System.out.print("Enter the length : ");
+        length = input.nextDouble();
+
+        System.out.print("Enter the breadth : ");
+        breadth = input.nextDouble();
+
+        area = length * breadth;
+
+        System.out.print("The area of rectangle is " + area );
+    }
+}
