@@ -1,0 +1,11 @@
+public class Variable {
+    public static void main(String[] args){
+        boolean year= false;
+        if (year){
+            System.out.println("It is a year");
+        }
+        else {
+            System.out.println("It is not a year");
+        }
+    }
+}
