@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class If {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        String name;
+        int age;
+        boolean isStudent;
+        System.out.print("What's your name ? : ");
+        name = input.nextLine();
+
+        System.out.print("What's your age ? : ");
+        age = input.nextInt();
+
+        System.out.print("Are you a student (true / false) : ");
+        isStudent = input.nextBoolean();
+
+        if (name.isEmpty()){
+            System.out.print("You haven't entered your name 😡");
+        }
+        else {
+            System.out.print("Hello" + " " + name + "\n");
+        }
+
+        if (age>=60){
+            System.out.print("You are a senior citizen 👴 ");
+        }
+        else if (age>=18){
+            System.out.print("You are an adult 👨‍🦰 ");
+        }
+        else if (age<0){
+            System.out.print("You haven't born yet 👼 ");
+        }
+        else if (age==0){
+            System.out.println("You are a baby 👶 ");
+        }
+        else {
+            System.out.print("You are a child 🧒 " );
+        }
+
+        if (isStudent) {
+            System.out.println("You are a student 🧑‍🎓 ");
+        }
+        else {
+            System.out.println("You are not a student 👮 ");
+        }
+        input.close();
+    }
+}
