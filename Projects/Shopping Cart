@@ -7,15 +7,16 @@ public class ShoppingCart {
         int quantity;
         char symbol = '$';
         double total;
-        System.out.print("What item would you like to buy ? : ");
+        System.out.print("What item would you like to buy ? 🛒 :  ");
         item = input.nextLine();
-        System.out.print("What is the price for each pizza ? : ");
+        System.out.print("What is the price for each pizza ? 💰 :  ");
         price = input.nextDouble();
-        System.out.print("How many would you like to buy ? : ");
+        System.out.print("How many would you like to buy ? 😉 :  ");
         quantity = input.nextInt();
         total = price * quantity;
-        System.out.println("You have bought " + quantity + " " + item);
-        System.out.print("Your total is " + symbol + total);
+        System.out.println("You have bought " + quantity + " " + item + "😋");
+        System.out.print("Your total is " + symbol + total + "😁");
         input.close();
     }
 }
+
