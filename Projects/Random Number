@@ -1,0 +1,14 @@
+import java.util.Random;
+class Hello {
+    public static void main(String[] args){
+        Random input = new Random();
+
+        int number1;
+        int number2;
+
+        number1 = input.nextInt(1001)+1;
+        number2 = input.nextInt(5001)+1;
+        System.out.println(number1 + " ");
+        System.out.print(number2);
+    }
+}
