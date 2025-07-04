@@ -1,0 +1,37 @@
+class Maths {
+    public static void main(String[] args){
+        // Maths Variables
+        System.out.println(Math.PI);
+        System.out.println(Math.E);
+
+        double result1;
+        double result2;
+        double result3;
+        double result4;
+        double result5;
+        double result6;
+        double result7;
+        double result8;
+
+        // Math Functions
+
+        result1 = Math.pow(4,5);
+        result2 = Math.abs(-9);
+        result3 = Math.sqrt(10);
+        result4 = Math.round(6.89);
+        result5 = Math.ceil(4.33);
+        result6 = Math.floor(3.77);
+        result7 = Math.min(10,99999);
+        result8 = Math.max(1,9990);
+
+        System.out.println(result1);
+        System.out.println(result2);
+        System.out.println(result3);
+        System.out.println(result4);
+        System.out.println(result5);
+        System.out.println(result6);
+        System.out.println(result7);
+        System.out.println(result8);
+
+    }
+}
