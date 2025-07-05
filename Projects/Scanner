@@ -37,6 +37,7 @@ public class If {
             System.out.print("You are a child 🧒 " );
         }
 
+        System.out.print("\n");
         if (isStudent) {
             System.out.println("You are a student 🧑‍🎓 ");
         }
@@ -46,3 +47,4 @@ public class If {
         input.close();
     }
 }
+
