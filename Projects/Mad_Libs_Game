@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Mad_Libs {
+public class Mad_Libs_Game {
   /*
   A fun Mad Libs program where you fill in words and it generates a silly story.
   */
