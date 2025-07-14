@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class Quiz_Game {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int score = 0; // To keep track of correct answers
+
+        System.out.println("📝 Welcome to the Simple Quiz!");
+        System.out.println("Answer the following questions:");
+
+        // Question 1
+        System.out.println("\n1️⃣ What is the capital of India?");
+        System.out.println("1. Mumbai");
+        System.out.println("2. New Delhi");
+        System.out.println("3. Bangalore");
+        System.out.print("Enter your answer (1-3): ");
+        int answer1 = input.nextInt();
+        if (answer1 == 2) {
+            System.out.println("✅ Correct!");
+            score++;
+        } else {
+            System.out.println("❌ Wrong! The correct answer is New Delhi.");
+        }
+
+        // Question 2
+        System.out.println("\n2️⃣ Which is the largest planet in our Solar System?");
+        System.out.println("1. Earth");
+        System.out.println("2. Mars");
+        System.out.println("3. Jupiter");
+        System.out.print("Enter your answer (1-3): ");
+        int answer2 = input.nextInt();
+        if (answer2 == 3) {
+            System.out.println("✅ Correct!");
+            score++;
+        } else {
+            System.out.println("❌ Wrong! The correct answer is Jupiter.");
+        }
+
+        // Question 3
+        System.out.println("\n3️⃣ Who wrote the national anthem of India?");
+        System.out.println("1. Rabindranath Tagore");
+        System.out.println("2. Mahatma Gandhi");
+        System.out.println("3. Subhash Chandra Bose");
+        System.out.print("Enter your answer (1-3): ");
+        int answer3 = input.nextInt();
+        if (answer3 == 1) {
+            System.out.println("✅ Correct!");
+            score++;
+        } else {
+            System.out.println("❌ Wrong! The correct answer is Rabindranath Tagore.");
+        }
+
+        // Final Score
+        System.out.println("\n🎉 Quiz Over!");
+        System.out.println("📊 You scored: " + score + " out of 3");
+
+        if (score == 3) {
+            System.out.println("🏆 Excellent! You got all answers correct.");
+        } else if (score == 2) {
+            System.out.println("👍 Good job! You got most of them right.");
+        } else {
+            System.out.println("👀 Better luck next time!");
+        }
+
+        input.close();
+    }
+}
