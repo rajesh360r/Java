@@ -1,0 +1,81 @@
+import java.util.Random;
+import java.util.Scanner;
+
+    public class Atm_OTP_Generator {
+    public static void main(String[] args) {
+        Scanner input_1 = new Scanner(System.in);
+        Random input_2 = new Random();
+
+        int balance = 5000; // Starting balance
+        int generatedOTP = 1000 + input_2.nextInt(9000); // Generate random 4-digit OTP
+
+        System.out.println("💳 Welcome to ATM OTP System!");
+        System.out.println("📲 An OTP has been sent to your registered mobile number.");
+        System.out.println("🔑 (For demo, your OTP is: " + generatedOTP + ")");
+
+        // Ask user to enter the OTP
+        System.out.print("Please enter the 4-digit OTP to continue: ");
+        int userOTP = input_1.nextInt();
+
+        // Validate OTP
+        if (userOTP != generatedOTP) {
+            System.out.println("❌ Incorrect OTP! Access Denied.");
+            return; // Exit the program
+        }
+
+        System.out.println("✅ OTP Verified! You are logged in.");
+
+        int choice;
+
+        // ATM Menu
+        do {
+            System.out.println("\n===== ATM MENU =====");
+            System.out.println("1️⃣  Check Balance");
+            System.out.println("2️⃣  Deposit Money");
+            System.out.println("3️⃣  Withdraw Money");
+            System.out.println("4️⃣  Exit");
+            System.out.print("Choose an option (1-4): ");
+            choice = input_1.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("💰 Your current balance is: ₹" + balance);
+                    break;
+
+                case 2:
+                    System.out.print("Enter amount to deposit: ₹");
+                    int deposit = input_1.nextInt();
+                    if (deposit > 0) {
+                        balance += deposit;
+                        System.out.println("✅ ₹" + deposit + " deposited successfully.");
+                    } else {
+                        System.out.println("❌ Invalid amount. Please enter a positive number.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter amount to withdraw: ₹");
+                    int withdraw = input_1.nextInt();
+                    if (withdraw > 0 && withdraw <= balance) {
+                        balance -= withdraw;
+                        System.out.println("✅ ₹" + withdraw + " withdrawn successfully.");
+                    } else if (withdraw > balance) {
+                        System.out.println("❌ Insufficient funds. You only have ₹" + balance);
+                    } else {
+                        System.out.println("❌ Invalid amount. Please enter a positive number.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("👋 Thank you for using the ATM. Have a nice day!");
+                    break;
+
+                default:
+                    System.out.println("❌ Invalid choice. Please select between 1 and 4.");
+            }
+
+        } while (choice != 4); // Repeat until user chooses Exit
+
+        input_1.close();
+    }
+}
