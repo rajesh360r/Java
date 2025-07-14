@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Rock_Paper_Scissor_Game {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+        Scanner input_1 = new Scanner(System.in);
+        Random input_2 = new Random();
 
         System.out.println("🎮 Welcome to Rock-Paper-Scissors Game!");
         System.out.println("Choose: 1 for Rock 🪨, 2 for Paper 📄, 3 for Scissors ✂️, 4 to Exit 🚪");
@@ -15,7 +15,7 @@ public class Rock_Paper_Scissor_Game {
         do {
             // Get user choice
             System.out.print("\nEnter your choice: ");
-            userChoice = scanner.nextInt();
+            userChoice = input_1.nextInt();
 
             // Check if user wants to exit
             if (userChoice == 4) {
@@ -29,8 +29,8 @@ public class Rock_Paper_Scissor_Game {
                 continue;
             }
 
-            // Generate computer choice (1=Rock, 2=Paper, 3=Scissors)
-            int computerChoice = 1 + random.nextInt(3);
+            // ✅ FIXED: Use input_2 (Random) instead of input_1 (Scanner)
+            int computerChoice = 1 + input_2.nextInt(3);
 
             // Display choices
             System.out.println("You chose: " + choiceToString(userChoice));
@@ -49,7 +49,7 @@ public class Rock_Paper_Scissor_Game {
 
         } while (userChoice != 4); // Continue until user selects 4 to exit
 
-        scanner.close();
+        input_1.close();
     }
 
     // Helper method to convert number to Rock, Paper, or Scissors
@@ -62,3 +62,4 @@ public class Rock_Paper_Scissor_Game {
         }
     }
 }
+
