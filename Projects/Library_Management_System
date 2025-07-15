@@ -1,0 +1,162 @@
+import java.io.*;
+import java.util.*;
+
+class Book {
+    private String title;
+    private String author;
+    private int year;
+
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    @Override
+    public String toString() {
+        return title + " by " + author + " (" + year + ")";
+    }
+}
+
+public class Library_Management_System {
+    private static final List<Book> books = new ArrayList<>();
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        loadBooksFromFile();
+
+        int choice;
+        do {
+            printMenu();
+            choice = getUserChoice();
+
+            switch (choice) {
+                case 1 -> addBook();
+                case 2 -> displayAllBooks();
+                case 3 -> searchBookByTitle();
+                case 4 -> removeBookByTitle();
+                case 5 -> saveBooksToFile();
+                default -> System.out.println("❌ Invalid option. Please try again.");
+            }
+        } while (choice != 5);
+    }
+
+    private static void printMenu() {
+        System.out.println("\n===== 📚 Library Management System 📚 =====");
+        System.out.println("1️⃣  Add Book");
+        System.out.println("2️⃣  Show All Books");
+        System.out.println("3️⃣  Search Book by Title");
+        System.out.println("4️⃣  Remove Book by Title");
+        System.out.println("5️⃣  Save & Exit");
+        System.out.print("👉 Enter your choice: ");
+    }
+
+    private static int getUserChoice() {
+        try {
+            return Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("⚠️  Invalid input! Please enter a number.");
+            return -1; // Invalid choice
+        }
+    }
+
+    private static void addBook() {
+        System.out.print("📖 Enter Book Title: ");
+        String title = scanner.nextLine().trim();
+
+        System.out.print("✍️ Enter Author Name: ");
+        String author = scanner.nextLine().trim();
+
+        System.out.print("📅 Enter Year of Publication: ");
+        int year;
+        try {
+            year = Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("⚠️  Invalid year! Book not added.");
+            return;
+        }
+
+        books.add(new Book(title, author, year));
+        System.out.println("✅ Book added successfully!");
+    }
+
+    private static void displayAllBooks() {
+        if (books.isEmpty()) {
+            System.out.println("📭 No books available.");
+        } else {
+            System.out.println("\n📚 Current Books in Library:");
+            books.forEach(book -> System.out.println("• " + book));
+        }
+    }
+
+    private static void searchBookByTitle() {
+        System.out.print("🔍 Enter Title to Search: ");
+        String searchTitle = scanner.nextLine().trim();
+
+        boolean found = false;
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(searchTitle)) {
+                System.out.println("✅ Found: " + book);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("❌ Book not found.");
+        }
+    }
+
+    private static void removeBookByTitle() {
+        System.out.print("🗑️ Enter Title to Remove: ");
+        String titleToRemove = scanner.nextLine().trim();
+
+        boolean removed = books.removeIf(book -> book.getTitle().equalsIgnoreCase(titleToRemove));
+
+        if (removed) {
+            System.out.println("✅ Book removed successfully!");
+        } else {
+            System.out.println("❌ Book not found.");
+        }
+    }
+
+    private static void saveBooksToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("books.txt"))) {
+            for (Book book : books) {
+                writer.write(book.getTitle() + "," + book.getAuthor() + "," + book.getYear());
+                writer.newLine();
+            }
+            System.out.println("💾 Books saved successfully. Exiting...");
+        } catch (IOException e) {
+            System.out.println("⚠️  Error saving books.");
+        }
+    }
+
+    private static void loadBooksFromFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("books.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String title = parts[0].trim();
+                    String author = parts[1].trim();
+                    int year = Integer.parseInt(parts[2].trim());
+                    books.add(new Book(title, author, year));
+                }
+            }
+        } catch (IOException e) {
+            // File might not exist yet; no need to print error
+        }
+    }
+}
