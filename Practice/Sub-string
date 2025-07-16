@@ -1,0 +1,31 @@
+/*
+Sub string :- sub string is the method used to extract a particular portion of the string
+ex :- String name = name.substring( , );
+ */
+
+public class Sub_String {
+    public static void main(String[] args) {
+        String email = "rajeshreddy360r@gmail.com";
+        String name = email.substring(0,11);
+        String domain = email.substring(16);
+        /*
+        Another way to write the above line is
+        String domain = email.substring(16,25);         // It's output is gmail.com
+         */
+
+        String testing_1 = email.substring(0,email.indexOf("g"));
+
+        String testing_2 = email.substring(email.indexOf("@") + 1);
+        /*
+        Another way to write testing_2 is
+        String testing_2 = email.substring(email.indexOf("g"));
+         */
+
+        System.out.println(email);
+        System.out.println(name);
+        System.out.println(domain);
+        System.out.println(testing_1);
+        System.out.println(testing_2);
+    }
+}
+
