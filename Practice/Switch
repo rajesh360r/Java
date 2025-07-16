@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class Switch_Example {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        String day;
+        System.out.print("Enter the day of the week: ");
+        day = input.nextLine();
+
+        switch(day){
+            case "monday" -> System.out.println("It is a weekday 😩");
+            case "tuesday" -> System.out.println("It is a weekday 😩");
+            case "wednesday" -> System.out.println("It is a weekday 😩");
+            case "thursday" -> System.out.println("It is a weekday 😩");
+            case "friday" -> System.out.println("It is a weekday 😩");
+            case "saturday" -> System.out.println("It is a weekend 😉");
+            case "sunday" -> System.out.println("It is a weekend 😉");
+            default -> System.out.println(day + " is not a valid day");
+        }
+
+        input.close();
+    }
+}
