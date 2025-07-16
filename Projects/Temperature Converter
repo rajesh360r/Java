@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Temperature_Converter {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        double temp;
+        double newTemp;
+        String unit;
+        System.out.println("Welcome to Temperature Converter 🔥!");
+        System.out.print("Enter the Temperature : ");
+        temp = input.nextDouble();
+        System.out.print("Convert the temperature into Celcius or Fahrenheit (C or F) : ");
+        unit = input.next().toUpperCase();
+
+        newTemp = (unit.equals("C"))
+                ? (temp - 32) * 5 / 9      // Fahrenheit to Celsius
+                : (temp * 9 / 5) + 32;     // Celsius to Fahrenheit
+
+        // Display result
+        if (unit.equals("C")) {
+            System.out.printf("Temperature in Celsius: %.2f°C%n", newTemp);
+        } else if (unit.equals("F")) {
+            System.out.printf("Temperature in Fahrenheit: %.2f°F%n", newTemp);
+        } else {
+            System.out.println("Invalid unit entered! Please enter C or F.");
+        }
+
+        input.close();
+    }
+}
