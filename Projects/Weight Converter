@@ -7,7 +7,7 @@ public class Weight_Converter {
         double newWeight;
         int choice;
 
-        System.out.println("Welcome to Weight Conversion Machine ⚖️!");
+        System.out.println("Welcome to Weight Converter ⚖️!");
         System.out.println("1: Convert kgs to lbs " );
         System.out.println("2: Convert lbs to kgs ");
         System.out.print("Choose an option : ");
