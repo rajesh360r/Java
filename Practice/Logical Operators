@@ -1,0 +1,29 @@
+/*
+Logical operators :- It is used to combine two or more statements
+and return a true or false result i.e. boolean type
+. It contains  && (Logical AND) , || (Logical OR) and ! (Logical NOT)
+
+&& (Returns true if both conditions are true)
+|| (Returns true if one condition is true)
+! (Inverts or reverses the result)
+ */
+
+public class Logical_Operators {
+    public static void main (String[] args) {
+        int temp = 30 ;
+        boolean isSunny = false;
+        if (temp <= 30 && temp >=0 && isSunny) {
+            System.out.print("The Weather is good 😁😁 \n");
+            System.out.print("It is Sunny outside 🌞🌞");
+        }
+        else if (temp <=30 && temp>= 0 && !isSunny) {
+            System.out.print("The Weather is good 😁😁 \n");
+            System.out.print("It is cloudy outside ☁️☁️");
+        }
+
+
+    }
+}
+
+
+
