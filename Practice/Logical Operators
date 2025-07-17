@@ -20,8 +20,9 @@ public class Logical_Operators {
             System.out.print("The Weather is good 😁😁 \n");
             System.out.print("It is cloudy outside ☁️☁️");
         }
-
-
+        else {
+            System.out.println("Temperature is bad 😩😩");
+        }
     }
 }
 
