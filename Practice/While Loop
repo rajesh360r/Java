@@ -1,0 +1,50 @@
+/*
+While Loop :-  The while loop in Java is used when you want to repeat a block of code
+as long as a condition is true. The condition is checked before the code runs.
+
+Syntax :-
+while (condition) {
+    // code to be executed
+}
+ .condition: a boolean expression (true or false).
+ .If true, the code block executes.
+ .If false, the loop stops.
+
+Flowchart :-
+1) Check condition
+2) If true → execute code → go back to step 1
+3) If false → exit loop
+ */
+
+public class While_Loop {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i<=5) {
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+
+// It prints numbers from 1 to 5
+
+
+
+/*
+// The program to print the sum of first 10 numbers are
+
+public class While_Loop {
+    public static void main (String[] args) {
+    int i = 0 ;
+    int sum = 0;
+    while (i<=0) {
+        sum += i ;
+        i++;
+    }
+    System.out.println("Sum is  " + sum );
+  }
+}
+
+Output :-
+Sum is 55
+*/
