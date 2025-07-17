@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Simple_Calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double num_1;
+        double num_2;
+        char operator;
+        double result = 0;
+        boolean validOperation = true;
+
+        System.out.print("Enter the first number: ");
+        num_1 = input.nextDouble();
+        System.out.print("Enter the second number: ");
+        num_2 = input.nextDouble();
+        System.out.print("Enter an operator (+, -, *, /, ^): ");
+        operator = input.next().charAt(0);
+
+        switch (operator) {
+            case '+' -> {
+                result = num_1 + num_2;
+                System.out.printf("✅ Addition of both numbers: %.2f\n", result);
+            }
+            case '-' -> {
+                result = num_1 - num_2;
+                System.out.printf("✅ Subtraction of both numbers: %.2f\n", result);
+            }
+            case '*' -> {
+                result = num_1 * num_2;
+                System.out.printf("✅ Multiplication of both numbers: %.2f\n", result);
+            }
+            case '/' -> {
+                if (num_2 == 0) {
+                    System.out.println("❌ Cannot divide by zero");
+                    validOperation = false;
+                } else {
+                    result = num_1 / num_2;
+                    System.out.printf("✅ Division of both numbers: %.2f\n", result);
+                }
+            }
+            case '^' -> {
+                result = Math.pow(num_1, num_2);
+                System.out.printf("✅ Exponent (%.2f ^ %.2f): %.2f\n", num_1, num_2, result);
+            }
+            default -> {
+                System.out.println("❌ Invalid Operator. No result.");
+                validOperation = false;
+            }
+        }
+
+        input.close();
+    }
+}
